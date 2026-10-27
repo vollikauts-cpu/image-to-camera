@@ -1,22 +1,22 @@
 
 buildscript {
     repositories {
-        maven {
-            url 'https://maven.google.com'
-        }
+        google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:7.4.2'
     }
 }
 
 allprojects {
     repositories {
-        maven {
-            url 'https://maven.google.com'
-        }
+        google()
         mavenCentral()
     }
+}
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
 }
