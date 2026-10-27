@@ -22,9 +22,15 @@ jobs:
           distribution: temurin
           java-version: '8'
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Install Android SDK components
         run: |
-          sdkmanager "platform-tools" "platforms;android-25" "build-tools;25.0.3"
+          sdkmanager --install \
+            "platform-tools" \
+            "platforms;android-25" \
+            "build-tools;25.0.3"
 
       - name: Grant Gradle permission
         run: chmod +x gradlew
