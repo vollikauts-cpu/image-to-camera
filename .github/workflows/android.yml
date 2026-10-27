@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java 17 for Android SDK
+      - name: Set up Java 17 for SDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -24,11 +24,12 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
 
       - name: Install Android SDK components
         run: |
           sdkmanager --install \
-            "platform-tools" \
             "platforms;android-25" \
             "build-tools;25.0.3"
 
